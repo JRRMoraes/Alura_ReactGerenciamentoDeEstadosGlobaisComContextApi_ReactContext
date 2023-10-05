@@ -1,5 +1,5 @@
 import { ThemeProvider, createTheme } from '@mui/material';
-import { StylesProvider } from '@mui/styles';
+//import { StylesProvider } from '@mui/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -20,11 +20,11 @@ const theme = createTheme({
 
 ReactDOM.render(
 	<React.StrictMode>
-		<StylesProvider injectFirst>
-			<ThemeProvider theme={theme}>
-				<Login />
-			</ThemeProvider>
-		</StylesProvider>
+		{/* <StylesProvider injectFirst> */}
+		<ThemeProvider theme={theme}>
+			<Login />
+		</ThemeProvider>
+		{/* </StylesProvider> */}
 	</React.StrictMode>,
 	document.getElementById('root')
 );
