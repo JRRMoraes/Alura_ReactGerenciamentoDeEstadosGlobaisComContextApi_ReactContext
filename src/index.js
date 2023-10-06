@@ -1,9 +1,9 @@
+import './index.css';
 import { ThemeProvider, createTheme } from '@mui/material';
 //import { StylesProvider } from '@mui/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Login from 'pages/Login';
+import Routes from 'pages/Routes';
 
 
 const theme = createTheme({
@@ -22,7 +22,7 @@ ReactDOM.render(
 	<React.StrictMode>
 		{/* <StylesProvider injectFirst> */}
 		<ThemeProvider theme={theme}>
-			<Login />
+			<Routes />
 		</ThemeProvider>
 		{/* </StylesProvider> */}
 	</React.StrictMode>,
