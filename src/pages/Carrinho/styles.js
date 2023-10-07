@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormControl, IconButton } from '@mui/material';
 import styled from 'styled-components';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -26,7 +27,7 @@ export const Container = styled.main`
 
 
 export const Voltar = styled(IconButton).attrs({
-    children: <ArrowBackIcon />
+	children: <ArrowBackIcon />
 })`
 	left: 20px;
 	position: absolute;
