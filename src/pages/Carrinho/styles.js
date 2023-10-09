@@ -27,7 +27,7 @@ export const Container = styled.main`
 
 
 export const Voltar = styled(IconButton).attrs({
-	children: <ArrowBackIcon />
+	children: ArrowBackIcon
 })`
 	left: 20px;
 	position: absolute;

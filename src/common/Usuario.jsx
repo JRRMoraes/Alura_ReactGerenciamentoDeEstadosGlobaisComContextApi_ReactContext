@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react"
 
 export const UsuarioContext = createContext()
 UsuarioContext.displayName = "Usuário"
+export default UsuarioContext
 
 
 export const UsuarioProvider = ({

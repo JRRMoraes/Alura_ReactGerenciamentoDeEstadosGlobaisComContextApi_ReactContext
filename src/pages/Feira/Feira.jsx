@@ -1,12 +1,9 @@
 import React from 'react';
-import {
-	Container,
-	Header,
-	Lista,
-} from './styles';
+import { Container, Header, Lista, } from './styles';
 import feira from './feira.json';
-import Produto from 'components/Produto';
-import NavBar from './NavBar';
+import NavBar from './NavBar/NavBar';
+import Produto from '/src/components/Produto/Produto';
+
 
 
 function Feira() {
@@ -15,8 +12,12 @@ function Feira() {
 			<NavBar />
 			<Header>
 				<div>
-					<h2> Olá!</h2>
-					<h3> Saldo: R$</h3>
+					<h2>
+						Olá!
+					</h2>
+					<h3>
+						Saldo: R$
+					</h3>
 				</div>
 				<p>
 					Encontre os melhores produtos orgânicos!
