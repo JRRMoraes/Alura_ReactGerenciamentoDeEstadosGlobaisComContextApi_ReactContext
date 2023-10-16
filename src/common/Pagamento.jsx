@@ -11,7 +11,7 @@ export const PagamentoProvider = ({
 
 	const tiposPagamento = [{
 		nome: "Boleto",
-		juros: 1,
+		juros: 1.0,
 		id: 1
 	}, {
 		nome: "Cartão de Crédito",
@@ -19,7 +19,7 @@ export const PagamentoProvider = ({
 		id: 2
 	}, {
 		nome: "PIX",
-		juros: 1,
+		juros: 1.1,
 		id: 3
 	}, {
 		nome: "Crediário",
@@ -33,8 +33,7 @@ export const PagamentoProvider = ({
 
 	return (
 		<PagamentoContext.Provider value={{
-			formaPagamento,
-			setFormaPagamento,
+			formaPagamento, setFormaPagamento,
 			tiposPagamento
 		}}>
 			{children}
@@ -45,11 +44,20 @@ export const PagamentoProvider = ({
 
 export const UsePagamentoContext = () => {
 
-	const { formaPagamento, setFormaPagamento, tiposPagamento } = useContext(PagamentoContext)
+	const { formaPagamento, setFormaPagamento,
+		tiposPagamento
+	} = useContext(PagamentoContext)
+
+
+	function ImporFormaPagamentoPorId(id) {
+		const tiposPagamentoL = tiposPagamento.find((tiposPagamentoI) => tiposPagamentoI.id === id)
+		setFormaPagamento(tiposPagamentoL)
+	}
 
 
 	return {
 		formaPagamento, setFormaPagamento,
-		tiposPagamento
+		tiposPagamento,
+		ImporFormaPagamentoPorId
 	}
 }

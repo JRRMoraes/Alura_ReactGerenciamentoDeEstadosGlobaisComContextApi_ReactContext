@@ -1,15 +1,14 @@
-import React, { useContext } from "react"
-import UsuarioContext from '/src/common/Usuario';
 import { Container, Titulo, InputContainer } from './styles';
 import { Button, Input, InputAdornment, InputLabel } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import { UseUsuarioContext } from "../../common/Usuario";
 
 
 function Login() {
 
 	const navegador = useNavigate()
 
-	const { nome, setNome, saldo, setSaldo } = useContext(UsuarioContext)
+	const { nome, setNome, saldo, setSaldo } = UseUsuarioContext()
 
 
 	return (
@@ -43,6 +42,7 @@ function Login() {
 			<Button variant="contained"
 				color="primary"
 				onClick={() => navegador("/feira")}
+				disabled={nome.length < 4}
 			>
 				Avançar
 			</Button>

@@ -12,8 +12,8 @@ export const Rotas = () => {
 	return (
 		<BrowserRouter>
 			<UsuarioProvider>
-				<CarrinhoProvider>
-					<PagamentoProvider>
+				<PagamentoProvider>
+					<CarrinhoProvider>
 						<Routes>
 							<Route exact path="/"
 								element={<Login />}
@@ -25,8 +25,8 @@ export const Rotas = () => {
 								element={<Carrinho />}
 							/>
 						</Routes>
-					</PagamentoProvider>
-				</CarrinhoProvider>
+					</CarrinhoProvider>
+				</PagamentoProvider>
 			</UsuarioProvider>
 		</BrowserRouter>
 	)

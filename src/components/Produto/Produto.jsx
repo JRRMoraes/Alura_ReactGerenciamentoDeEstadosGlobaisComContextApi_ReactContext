@@ -4,6 +4,7 @@ import { IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { UseCarrinhoContext } from '../../common/Carrinho';
+import { UseUsuarioContext } from '../../common/Usuario';
 
 
 function Produto({
@@ -14,7 +15,10 @@ function Produto({
 	unidade
 }) {
 
-	const { carrinho, AdicionarProduto, RemoverProduto } = UseCarrinhoContext()
+	const { carrinho, AdicionarProduto, RemoverProduto, totalLiquido } = UseCarrinhoContext()
+
+
+	const { saldo } = UseUsuarioContext()
 
 
 	const produtoNoCarrinho = carrinho?.find(carrinhoI => carrinhoI.id === id)
@@ -22,13 +26,25 @@ function Produto({
 
 	function AdicionarProdutoNoCarrinho() {
 		if (AdicionarProduto)
-			AdicionarProduto({ nome, foto, id, valor })
+			AdicionarProduto({ nome, foto, id, valor, unidade })
 	}
 
 
 	function RemoverProdutoDoCarrinho() {
 		if (RemoverProduto)
 			RemoverProduto(id)
+	}
+
+
+	function DesativadoButtonRemover() {
+		return (!produtoNoCarrinho)
+			|| (produtoNoCarrinho.quantidade === 0)
+	}
+
+
+	function DesativadoButtonAdicionar() {
+		return (totalLiquido > saldo)
+			|| (saldo === 0)
 	}
 
 
@@ -45,11 +61,15 @@ function Produto({
 			<div>
 				<IconButton color="secondary"
 					onClick={() => RemoverProdutoDoCarrinho()}
+					disabled={DesativadoButtonRemover()}
 				>
 					<RemoveIcon />
 				</IconButton>
 				{produtoNoCarrinho?.quantidade || 0}
-				<IconButton onClick={() => AdicionarProdutoNoCarrinho()}>
+				<IconButton color="primary"
+					onClick={() => AdicionarProdutoNoCarrinho()}
+					disabled={DesativadoButtonAdicionar()}
+				>
 					<AddIcon />
 				</IconButton>
 			</div>

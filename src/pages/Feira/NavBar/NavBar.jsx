@@ -5,11 +5,12 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge, IconButton } from '@mui/material';
 import { UseCarrinhoContext } from '../../../common/Carrinho';
 import { useNavigate } from 'react-router-dom';
+import { Voltar } from '../../../components/UIBase/Voltar';
 
 
 export default function NavBar() {
 
-	const { volume, total } = UseCarrinhoContext()
+	const { volume, totalBruto } = UseCarrinhoContext()
 
 
 	const navegador = useNavigate()
@@ -17,13 +18,14 @@ export default function NavBar() {
 
 	return (
 		<Nav>
+			<Voltar />
 			<img src={Logo}
 				alt="Logo da empresa"
 			/>
 			<div>
 				<span>{volume} volumes</span>
 				<br />
-				<span>Total: R$ {total}</span>
+				<span>Total: R$ {totalBruto.toFixed(2)}</span>
 			</div>
 			<IconButton disabled={volume === 0}
 				onClick={() => navegador("/carrinho")}

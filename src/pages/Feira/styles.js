@@ -7,7 +7,7 @@ export const Container = styled.main`
 	padding: 0 20px;
 	@media(min-width: 768px) {
 		margin: 0 auto;
-		width: 50%;
+		width: 70%;
 	}
 `
 
@@ -18,16 +18,20 @@ export const Header = styled.header`
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 10px;
+
 		> h2, > h3 {
-		color: ${titleGray};
+			color: ${titleGray};
 		}
+
 		h2 {
-		font-size: 32px;
+			font-size: 32px;
 		}
+
 		h3 {
-		font-size: 26px;
+			font-size: 26px;
 		}
 	}
+
 	> p {
 		color: #A3A3A3;
 		font-size: 26px;
@@ -40,6 +44,7 @@ export const Lista = styled.section`
 	flex-direction: column;
 	gap: 10px;
 	padding: 20px 0;
+	
 	> h2 {
 		color: ${titleGray};
 		font-size: 32px;

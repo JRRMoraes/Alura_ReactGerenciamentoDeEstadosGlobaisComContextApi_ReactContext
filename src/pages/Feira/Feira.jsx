@@ -3,10 +3,14 @@ import { Container, Header, Lista, } from './styles';
 import feira from './feira.json';
 import NavBar from './NavBar/NavBar';
 import Produto from '/src/components/Produto/Produto';
-
+import { UseUsuarioContext } from '../../common/Usuario';
 
 
 function Feira() {
+
+	const { saldo } = UseUsuarioContext()
+
+
 	return (
 		<Container>
 			<NavBar />
@@ -16,7 +20,7 @@ function Feira() {
 						Olá!
 					</h2>
 					<h3>
-						Saldo: R$
+						Saldo: R$ {saldo.toFixed(2)}
 					</h3>
 				</div>
 				<p>
